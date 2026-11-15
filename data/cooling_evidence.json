@@ -1,0 +1,80 @@
+{
+  "interventions": [
+    {
+      "id": "cool_roof_paint",
+      "name": "High-Reflectance Cool-Roof Coating",
+      "suitable_roof_types": ["corrugated_metal", "tin", "asbestos", "flat_concrete"],
+      "default_installed_rate_per_sqm": 100.0,
+      "currency": "INR",
+      "default_surface_prep_cost": 1000.0,
+      "recoating_interval_years": 3,
+      "recoating_cost_per_sqm": 45.0,
+      "evidence": {
+        "study": "Vellingiri et al., 2020 (Mahila Housing Trust, Ahmedabad)",
+        "sample_size": "16 monitored households across informal settlements",
+        "observed_reduction": "Approx. 1.0°C lower mean daytime indoor air temperature compared to uncoated tin roofs",
+        "conditions": "Tin sheet roofs, peak summer daylight hours",
+        "standard_caveat": "Reference scenario: approximately 1°C lower daytime indoor temperature, based on a small Ahmedabad study. Local performance requires verification.",
+        "url": "https://www.mahilahousingtrust.org/wp-content/uploads/2022/06/MHT_Combating-Climate-Change%E2%80%90induced-Heat-Stress.pdf"
+      },
+      "secondary_evidence": {
+        "study": "Ahmedabad Heat-Adaptation Study",
+        "observed_reduction": "1.0 - 1.5°C lower indoor temperature during peak summer days",
+        "url": "https://aber.apacsci.com/index.php/SSD/article/view/2461"
+      }
+    },
+    {
+      "id": "ventilation_support",
+      "name": "Passive Ventilation & Airflow Audit",
+      "suitable_roof_types": ["tin", "asbestos", "brick_masonry"],
+      "default_installed_package_cost": 3500.0,
+      "currency": "INR",
+      "evidence": {
+        "study": "Vellingiri et al., 2020 (Mahila Housing Trust, Ahmedabad)",
+        "observed_finding": "Standard unverified cowl/Airlite vents were associated with equal or higher indoor daytime temperatures when exterior ambient heat entered without thermal stack suction.",
+        "standard_caveat": "Temperature reduction: assessment required. Ventilation efficacy depends on opening orientations, indoor ceiling height, and ambient diurnal range."
+      }
+    },
+    {
+      "id": "urban_trees",
+      "name": "Native Shade Tree Plantation",
+      "suitable_land_types": ["ground_open_space", "curbside", "courtyards"],
+      "cost_per_tree": 1200.0,
+      "currency": "INR",
+      "maintenance_annual_per_tree": 400.0,
+      "evidence": {
+        "source": "US EPA Heat Island Guidelines - Benefits of Trees & Vegetation",
+        "mechanism": "Shading reduces peak surface heat by 11-25°C; evapotranspiration reduces ambient air temp by 1-5°C at neighborhood canopy scale.",
+        "caution": "Newly planted saplings provide negligible shade in years 0-3. Must verify layout against adjacent rooftop solar panels to prevent future solar shading losses.",
+        "url": "https://www.epa.gov/heatislands/benefits-trees-and-vegetation"
+      }
+    },
+    {
+      "id": "green_pocket_park",
+      "name": "Community Green Pocket Park & Bioswale",
+      "suitable_land_types": ["vacant_public_plots", "drainage_easements"],
+      "default_cost_per_sqm": 450.0,
+      "currency": "INR",
+      "evidence": {
+        "source": "US EPA Urban Heat Island Reduction Compendium",
+        "mechanism": "Localized ambient cooling within 30-50m buffer; ground water recharge and community recreational thermal refuge.",
+        "caution": "Requires clear municipal land title, water access for dry season maintenance, and community stewardship."
+      }
+    }
+  ],
+  "solar_subsidy_scheme": {
+    "name": "PM Surya Ghar: Muft Bijli Yojana",
+    "authority": "Ministry of New and Renewable Energy (MNRE), Govt. of India",
+    "effective_date": "2024",
+    "rates": {
+      "first_2kw_per_kw": 30000.0,
+      "third_kw": 18000.0,
+      "max_subsidy": 78000.0
+    },
+    "restrictions": [
+      "Residential grid-connected rooftop systems only.",
+      "Cannot be applied to cool-roof coating, ventilation hardware, or civil roof repairs.",
+      "Requires DISCOM inspection, technical feasibility approval, and net meter commissioning."
+    ]
+  }
+}

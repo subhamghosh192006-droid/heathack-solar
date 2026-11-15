@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+.venv/
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+
+# Model weights & caches
+*.pt
+*.onnx
+*.bin
+weights/
+
+# Environment and secrets
+.env
+*.local
+
+# System and editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Temporary test outputs
+*_detected.*
+server/sample_roof.jpg
+server/roof_photo.jpg
+server/real_roof.jpg

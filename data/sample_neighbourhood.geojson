@@ -1,0 +1,141 @@
+{
+  "type": "FeatureCollection",
+  "name": "HeatHack_Pilot_Neighbourhood_Ward12",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "metadata": {
+    "city": "Ahmedabad",
+    "ward": "Ward 12 - Shanti Nagar Pilot",
+    "satellite_observation_date": "2024-05-18",
+    "satellite_sensor": "Landsat-9 TIRS (Band 10) & Sentinel-2 MSI",
+    "cloud_coverage_percent": 1.2,
+    "thermal_disclaimer": "LST values reflect satellite-observed surface skin temperatures at 10:45 AM local solar time, not ambient outdoor or indoor air temperatures."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "bldg_001",
+      "properties": {
+        "building_id": "BLDG-001",
+        "name": "Community Housing Block A",
+        "roof_type": "corrugated_tin",
+        "roof_condition": "aged_uncoated",
+        "floors": 1,
+        "est_households": 4,
+        "measured_roof_area_sqm": 88.5,
+        "lst_surface_temp_c": 46.2,
+        "ndvi_green_index": 0.08,
+        "survey_completed": true,
+        "income_bracket": "low_income",
+        "ventilation_status": "inadequate_cowl",
+        "solar_suitability": "high",
+        "recommended_interventions": ["cool_roof_paint", "solar_pv"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.581200, 23.031500],
+            [72.581320, 23.031500],
+            [72.581320, 23.031410],
+            [72.581200, 23.031410],
+            [72.581200, 23.031500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bldg_002",
+      "properties": {
+        "building_id": "BLDG-002",
+        "name": "Patel Residence & Workshop",
+        "roof_type": "flat_concrete_rcc",
+        "roof_condition": "fair",
+        "floors": 2,
+        "est_households": 2,
+        "measured_roof_area_sqm": 124.0,
+        "lst_surface_temp_c": 41.8,
+        "ndvi_green_index": 0.14,
+        "survey_completed": true,
+        "income_bracket": "middle_income",
+        "ventilation_status": "adequate",
+        "solar_suitability": "very_high",
+        "recommended_interventions": ["solar_pv", "rooftop_cool_barrier"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.581400, 23.031550],
+            [72.581550, 23.031550],
+            [72.581550, 23.031440],
+            [72.581400, 23.031440],
+            [72.581400, 23.031550]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bldg_003",
+      "properties": {
+        "building_id": "BLDG-003",
+        "name": "Sub-cluster Dwellings (East Row)",
+        "roof_type": "asbestos_sheet",
+        "roof_condition": "degraded",
+        "floors": 1,
+        "est_households": 6,
+        "measured_roof_area_sqm": 142.0,
+        "lst_surface_temp_c": 47.9,
+        "ndvi_green_index": 0.05,
+        "survey_completed": false,
+        "survey_flag": "Survey required (informal tenancy & structural integrity)",
+        "income_bracket": "vulnerable",
+        "ventilation_status": "unverified",
+        "solar_suitability": "requires_civil_assessment",
+        "recommended_interventions": ["cool_roof_paint", "ventilation_support"]
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.581600, 23.031480],
+            [72.581780, 23.031480],
+            [72.581780, 23.031370],
+            [72.581600, 23.031370],
+            [72.581600, 23.031480]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cluster_zone_north",
+      "properties": {
+        "cluster_id": "ZONE-NORTH",
+        "name": "North Informal Settlement Cluster",
+        "avg_lst_c": 47.1,
+        "avg_ndvi": 0.06,
+        "predominant_roof": "corrugated_tin",
+        "total_households": 48,
+        "vulnerability_score": 0.89,
+        "priority_rank": 1,
+        "primary_cooling_intervention": "cool_roof_paint",
+        "est_programme_budget_inr": 240000,
+        "evidence_citation": "Reference scenario: approx. 1°C lower daytime indoor temp (MHT 2020 study)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [72.580800, 23.031800],
+            [72.582200, 23.031800],
+            [72.582200, 23.031200],
+            [72.580800, 23.031200],
+            [72.580800, 23.031800]
+          ]
+        ]
+      }
+    }
+  ]
+}

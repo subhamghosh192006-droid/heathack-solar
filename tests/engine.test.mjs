@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {defaults,solar,subsidy,area,layout,validPanel,usableArea,rank,budget,simple} from '../dist/engine.js';
+const roof=[{x:0,y:0},{x:12,y:0},{x:12,y:10},{x:0,y:10}];
+test('subsidy boundaries and cap',()=>{assert.equal(subsidy(0),0);assert.equal(subsidy(1),30000);assert.equal(subsidy(2),60000);assert.equal(subsidy(2.5),69000);assert.equal(subsidy(3),78000);assert.equal(subsidy(10),78000);});
+test('3kW example, self use and exports are priced independently',()=>{let s=solar(6);assert.equal(s.capacity,3);assert.equal(s.generation,360);assert.equal(s.selfConsumed,270);assert.equal(s.exported,90);assert.equal(s.annual,(270*8+90*2.5)*12-1800);assert.equal(s.net,102000);});
+test('low demand caps self-consumption; fixed charges never included',()=>{let s=solar(6,{...defaults,consumption:30,selfUse:100});assert.equal(s.selfConsumed,30);assert.equal(s.exported,330);});
+test('no positive payback and zero panels',()=>{assert.equal(solar(6,{...defaults,tariff:0,exportRate:0}).payback,null);assert.equal(solar(0).payback,null);});
+test('rectangular roof area, overlapping exclusions counted once',()=>{assert.equal(area(roof),120);let ex=[{x:2,y:2,w:2,h:2}];let once=usableArea(roof,ex,0),twice=usableArea(roof,[...ex,...ex],0);assert.ok(Math.abs(once-116)<.01);assert.ok(Math.abs(once-twice)<.001);});
+test('generated rectangles avoid roof boundary and obstacles',()=>{const ex=[{x:8,y:1,w:2,h:2}];const panels=layout(roof,ex,defaults);assert.ok(panels.length>6);for(const r of panels)assert.ok(validPanel(r,roof,ex,panels.filter(p=>p!==r),defaults));});
+test('overlap, setbacks, and concave roof bridging rejected',()=>{assert.equal(validPanel({x:0,y:0,w:1,h:2},roof,[],[],defaults),false);assert.equal(validPanel({x:1,y:1,w:1,h:2},roof,[],[{x:1.5,y:2,w:1,h:2}],defaults),false);const concave=[{x:0,y:0},{x:6,y:0},{x:6,y:6},{x:4,y:6},{x:4,y:2},{x:2,y:2},{x:2,y:6},{x:0,y:6}];assert.equal(validPanel({x:1,y:3,w:4,h:1},concave,[],[],{...defaults,setback:0}),false);});
+test('self crossing boundary is rejected',()=>assert.equal(simple([{x:0,y:0},{x:10,y:10},{x:10,y:0},{x:0,y:10}]),false));
+test('missing survey data yields provisional ranking',()=>{let r=rank([{name:'unknown',heat:90,housing:80,green:70,vulnerability:null,survey:false}],{heat:40,housing:25,green:15,vulnerability:20})[0];assert.equal(r.provisional,true);assert.equal(r.score,76.5);});
+test('programme budget never funds fractional homes',()=>{assert.deepEqual(budget({area:40,rate:100,prep:1000,budget:500000,overhead:0,households:100}),{household:5000,reached:100,total:500000,remaining:0});assert.equal(budget({area:40,rate:100,prep:1000,budget:9999,overhead:0,households:100}).reached,1);});

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Rounded background matching brand green -->
+  <rect width="64" height="64" rx="16" fill="#147d63"/>
+  
+  <!-- Glowing Sun / Clean Energy -->
+  <circle cx="32" cy="21" r="8" fill="#f59e0b"/>
+  <path d="M32 7v3.5M32 31.5v3.5M18 21h3.5M42.5 21H46M22.1 11.1l2.5 2.5M39.4 28.4l2.5 2.5M22.1 30.9l2.5-2.5M39.4 13.6l2.5-2.5" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+  
+  <!-- Rooftop Structure -->
+  <path d="M12 43l20-15 20 15" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 42v13h30V42" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Solar PV Panels in Blue -->
+  <rect x="21" y="43" width="9" height="7" rx="1" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
+  <rect x="34" y="43" width="9" height="7" rx="1" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
+</svg>
